@@ -1,6 +1,4 @@
-
-type MessageData = {type: "ready", frameid: 'editor'}
-
+type MessageData = { type: "ready"; frameid: "editor" };
 
 let messageCount = 0;
 function getMessageId() {
@@ -11,10 +9,10 @@ function getMessageId() {
 
 function getImportProjectMessage() {
     const message = {
-        type:"pxteditor",
+        type: "pxteditor",
         id: getMessageId(),
-        action:"importproject",
-        project:{
+        action: "importproject",
+        project: {
             text: {
                 "main.blocks": `
                 <xml xmlns="http://www.w3.org/1999/xhtml">
@@ -29,44 +27,49 @@ function getImportProjectMessage() {
                     },
                     "description":"",
                     "files": ["main.blocks", "main.ts","README.md"]
-                }`
-              }
+                }`,
+            },
         },
         filters: {},
         response: true,
-    }
+    };
     return message;
 }
 
 function post(iframe: HTMLIFrameElement, message: any) {
-    console.log("post");
+    console.log("message - post");
     console.log(message);
-    iframe.contentWindow?.postMessage(message, "*");
+    const content = iframe.contentWindow;
+    if (content) {
+        content.postMessage(message, "*");
+    } else {
+        console.log("no content, can't can't post");
+    }
 }
 
 let editor: HTMLIFrameElement;
 
 function handleMessage(message: MessageEvent<MessageData>) {
-    console.log("message");
+    console.log("message - receive");
     console.log(message);
-    const {data} = message;
+    const { data } = message;
     console.log(data);
 
     if (data.type === "ready") {
-        // On ready, send importproject 
-        editor = document.getElementById(data.frameid) as HTMLIFrameElement;
+        // On ready, send importproject
+        // data.frameid not always defined
+        editor = document.getElementById("editor") as HTMLIFrameElement;
         if (editor) {
-            const message = getImportProjectMessage();
-            post(editor, message);
+            //const message = getImportProjectMessage();
+            //post(editor, message);
         }
     }
 }
 
-
 function clickButtonExport() {
     console.log("clickButtonExport");
     if (editor) {
-        // workspacesave 
+        // workspacesave
         const message = {
             // What is pxt host verses pxt editor?
             type: "pxteditor",
@@ -81,7 +84,7 @@ function clickButtonExport() {
 function setup() {
     window.addEventListener("message", handleMessage, false);
 
-    const button = document.getElementById("button_export")
+    const button = document.getElementById("button_export");
     if (button) {
         button.addEventListener("click", clickButtonExport);
     }

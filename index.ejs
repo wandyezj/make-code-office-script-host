@@ -10,8 +10,14 @@
 </head>
 
 <body>
-    <button id="button_export">Export</button>
-    <iframe id="editor" src="<%= htmlWebpackPlugin.options.domain %>/index.html#editor" style="
+    <!-- 
+        <button id="button_export">Export</button>
+        note might need local token, maybe not?
+    controller=1 is required
+
+    #editor not needed
+    -->
+    <iframe id="editor" src="<%= htmlWebpackPlugin.options.domain %>/index.html?controller=1" style="
                 margin: 0;
                 border: none;
                 width: 100%;
