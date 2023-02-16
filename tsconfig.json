@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "outDir": "./dist",
+      "module": "commonjs",
+      "target": "es2020",
+      "declaration": false,
+      "sourceMap": true,
+      "experimentalDecorators": true,
+      "noEmitOnError": true,
+      "moduleResolution": "node",
+      "skipLibCheck": true,
+      // "strict": true,
+      "paths": {
+        "*": [
+          "./src/*"
+        ]
+      },
+      "lib": [
+          "es2015",
+          "dom"
+      ]
+    },
+    "exclude": [
+      "node_modules",
+      "dist",
+    ]
+  }
