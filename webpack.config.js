@@ -33,7 +33,7 @@ const config = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: "Data Science Editor",
+            title: "Make Code",
             template: "index.ejs",
             domain,
         }),
@@ -53,7 +53,7 @@ module.exports = async (env, argv) => {
             port: 8080,
         };
     }
-    return config;
+    return o;
 };
 
 async function getHttpsOptions() {
