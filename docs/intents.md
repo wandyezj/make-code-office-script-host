@@ -91,14 +91,14 @@ function main(workbook: ExcelScript.Workbook) {
         },
 
         deleteWorksheetByName(name: string) {
-            const worksheet = workbook.getWorksheet(currentName);
+            const worksheet = workbook.getWorksheet(name);
             if (worksheet !== undefined) {
                 worksheet.delete()
             }
         },
 
         recreateWorksheetByName(name: string) {
-            const worksheet = workbook.getWorksheet(currentName);
+            const worksheet = workbook.getWorksheet(name);
             if (worksheet !== undefined) {
                 worksheet.delete()
             }
@@ -106,7 +106,7 @@ function main(workbook: ExcelScript.Workbook) {
         },
 
         setWorksheetCellTextValue(sheetName: string, cellAddress: string, value: string) {
-            const worksheet = workbook.getWorksheet(currentName);
+            const worksheet = workbook.getWorksheet(sheetName);
             const range = worksheet.getRange(cellAddress);
             range.setValue(value);
         }
