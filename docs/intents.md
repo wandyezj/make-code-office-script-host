@@ -109,11 +109,11 @@ function main(workbook: ExcelScript.Workbook) {
             const worksheet = workbook.getWorksheet(sheetName);
             const range = worksheet.getRange(cellAddress);
             range.setValue(value);
-        }
+        },
 
         setWorksheetRangeFillColor(sheetName: string, rangeAddress: string, color: string): void {
             workbook.getWorksheet(sheetName).getRange(rangeAddress).getFormat().getFill().setColor(color);
-        }
+        },
 
         createOnWorksheetRangeConditionalFormatContainsText(
             sheetName: string,
@@ -136,11 +136,11 @@ function main(workbook: ExcelScript.Workbook) {
             font.setBold(bold);
             font.setItalic(italic);
             font.setColor(fontColor);
-        }
+        },
 
         getWorksheetRange(sheetName: string, rangeAddress: string) {
-            return workbook.getWorksheet(currentName).getRange(rangeAddress);
-        }
+            return workbook.getWorksheet(sheetName).getRange(rangeAddress);
+        },
     }
     //#endregion intents
 
