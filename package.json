@@ -14,7 +14,8 @@
         "clean": "node ./scripts/clean.js dist && node ./scripts/clean.js temp",
         "compile": "webpack",
         "dev-server": "webpack-dev-server --mode development",
-        "server": "npm run dev-server"
+        "server": "npm run dev-server",
+        "start": "npm run server"
     },
     "repository": {
         "type": "git",
