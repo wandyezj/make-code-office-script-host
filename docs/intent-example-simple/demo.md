@@ -7,7 +7,7 @@ Demo
 1. Observe Block 
     ![](./block.png)
 1. Swap to the JavaScript Code View
-1. Observe Code
+1. Observe Code [script.ts](./script.ts)
     ```typescript
         intent.createOnWorksheetRangeConditionalFormatContainsText(
     "Sheet1",

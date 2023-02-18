@@ -1,0 +1,9 @@
+intent.createOnWorksheetRangeConditionalFormatContainsText(
+    "Sheet1",
+    "A1",
+    "hi",
+    "#FF0000",
+    "#000000",
+    false,
+    false
+    )
