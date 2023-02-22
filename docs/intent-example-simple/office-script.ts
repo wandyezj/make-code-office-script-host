@@ -14,7 +14,7 @@ function main(workbook: ExcelScript.Workbook) {
             const range = worksheet.getRange(rangeAddress);
             const cf = range.addConditionalFormat(ExcelScript.ConditionalFormatType.containsText).getTextComparison();
 
-            cf.setRule({operator:ExcelScript.ConditionalTextOperator.contains, text:`=${text}`});
+            cf.setRule({operator:ExcelScript.ConditionalTextOperator.contains, text:`${text}`});
 
             const format = cf.getFormat();
             const font = format.getFont();
